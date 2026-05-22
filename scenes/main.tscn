@@ -8,7 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://bl6famxfp5gqk" path="res://assets/Group 1.png" id="4_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://hiui2pmnbav3" path="res://assets/Group 133.png" id="6_tefeu"]
 [ext_resource type="Texture2D" uid="uid://bcilmwfpkqqll" path="res://assets/Group 425.png" id="8_85g3d"]
+[ext_resource type="Script" uid="uid://dnfgt4o0hsf0w" path="res://scenes/sound_button.gd" id="9_85g3d"]
 [ext_resource type="Texture2D" uid="uid://cpus66bq6rdcc" path="res://assets/Group 427.png" id="9_choun"]
+[ext_resource type="Script" uid="uid://clidkxljiwxeu" path="res://scenes/music_button.gd" id="9_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://cbdlposdhs42h" path="res://assets/Group 426.png" id="10_choun"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0wfyh"]
@@ -28,9 +30,6 @@ texture = ExtResource("2_jyhfs")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a8y0u"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ya4ey"]
-texture = ExtResource("2_jyhfs")
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tipki"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ya4ey"]
@@ -39,12 +38,6 @@ texture = ExtResource("2_jyhfs")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_choun"]
 texture = ExtResource("1_o5qli")
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jkv2x"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jbj1t"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_muem4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dp3eg"]
 
@@ -144,15 +137,15 @@ grow_vertical = 2
 scale = Vector2(1.221519, 1.1039999)
 texture = ExtResource("4_tbgi4")
 
-[node name="OptionsPanel" type="Panel" parent="." unique_id=1373708675]
+[node name="OptionsPanel" type="Panel" parent="." unique_id=1006494770]
 visible = false
+modulate = Color(0.9871462, 1.0845727, 1.0845727, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_ya4ey")
 
 [node name="Button3" type="Button" parent="OptionsPanel" unique_id=408850609]
 layout_mode = 1
@@ -193,33 +186,38 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_choun")
 [node name="HBoxContainer" type="HBoxContainer" parent="OptionsPanel/Options" unique_id=209506843]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.112
-anchor_top = 0.45400003
-anchor_right = 0.85800004
-anchor_bottom = 0.721
-offset_left = 10.803997
-offset_top = -4.3959885
-offset_right = 10.831726
-offset_bottom = 0.4460144
+anchor_left = 0.1
+anchor_top = 0.316
+anchor_right = 0.88400006
+anchor_bottom = 0.854
+offset_left = 40.651997
+offset_top = -0.012008667
+offset_right = -40.336304
+offset_bottom = -0.10202026
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 20
 
-[node name="MusicButton" type="Button" parent="OptionsPanel/Options/HBoxContainer" unique_id=236410436]
+[node name="MusicButton" type="TextureButton" parent="OptionsPanel/Options/HBoxContainer" unique_id=1981005357]
+custom_minimum_size = Vector2(126, 78)
 layout_mode = 2
-theme_override_icons/icon = ExtResource("8_85g3d")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_jkv2x")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_jbj1t")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_muem4")
+texture_normal = ExtResource("8_85g3d")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("9_eb6dy")
 
-[node name="SoundButton" type="Button" parent="OptionsPanel/Options/HBoxContainer" unique_id=1091766459]
+[node name="SoundButton" type="TextureButton" parent="OptionsPanel/Options/HBoxContainer" unique_id=1479419492]
+custom_minimum_size = Vector2(126, 78)
 layout_mode = 2
-theme_override_icons/icon = ExtResource("9_choun")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_dp3eg")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_0ld40")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_gqmmt")
+texture_normal = ExtResource("9_choun")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("9_85g3d")
 
 [node name="language" type="Button" parent="OptionsPanel/Options/HBoxContainer" unique_id=972392977]
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
+theme_override_font_sizes/font_size = 16
 theme_override_icons/icon = ExtResource("10_choun")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_dp3eg")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_0ld40")

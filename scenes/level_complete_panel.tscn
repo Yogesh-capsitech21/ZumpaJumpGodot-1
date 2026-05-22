@@ -9,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://bt58gwtxchnw7" path="res://assets/Star 4.png" id="7_jirbl"]
 [ext_resource type="Texture2D" uid="uid://b5oskcrnni621" path="res://assets/Star 3.png" id="8_2hnm7"]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2lt3i"]
+texture = ExtResource("4_jirbl")
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_036us"]
 texture = ExtResource("2_5qbw5")
 
@@ -18,25 +21,49 @@ texture = ExtResource("2_5qbw5")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_chglr"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2lt3i"]
-texture = ExtResource("4_jirbl")
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_38dbo"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dy7mf"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tugda"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qjecw"]
-texture = ExtResource("6_gto2t")
+[sub_resource type="Animation" id="Animation_gto2t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e0pkv"]
-texture = ExtResource("7_jirbl")
+[sub_resource type="Animation" id="Animation_jirbl"]
+resource_name = "fade_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.46666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0)]
+}
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uemsn"]
-texture = ExtResource("8_2hnm7")
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2hnm7"]
+_data = {
+&"RESET": SubResource("Animation_gto2t"),
+&"fade_out": SubResource("Animation_jirbl")
+}
 
 [node name="LevelCompletePanel" type="Control" unique_id=1322715221]
+process_mode = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -44,27 +71,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7ge0h")
-
-[node name="Panel" type="Panel" parent="." unique_id=1295939454]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_036us")
-
-[node name="BackButton" type="Button" parent="." unique_id=1462148604]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.062000003
-anchor_bottom = 0.127
-offset_right = -0.22000122
-offset_bottom = -0.05999756
-theme_override_icons/icon = ExtResource("3_gto2t")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_nsw0g")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_jxpht")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_chglr")
 
 [node name="Label" type="Panel" parent="." unique_id=1550417146]
 layout_mode = 1
@@ -81,63 +87,103 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_2lt3i")
 
-[node name="NextButton" type="Button" parent="Label" unique_id=1189702666]
+[node name="Panel" type="Panel" parent="." unique_id=1295939454]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = 3.0
+offset_right = -8.0
+offset_bottom = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_036us")
+
+[node name="BackButton" type="Button" parent="." unique_id=1462148604]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.231
-anchor_top = 0.67800003
-anchor_right = 0.76900005
-anchor_bottom = 0.892
-offset_left = -0.10800171
-offset_top = -0.0960083
-offset_right = 0.10797119
-offset_bottom = -0.14401245
+anchor_right = 0.062000003
+anchor_bottom = 0.127
+offset_right = 52.376007
+offset_bottom = 71.983
+theme_override_icons/icon = ExtResource("3_gto2t")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_nsw0g")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_jxpht")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_chglr")
+
+[node name="NextButton" type="Button" parent="." unique_id=1189702666]
+process_mode = 2
+z_index = 8
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.446
+anchor_top = 0.47200003
+anchor_right = 0.564
+anchor_bottom = 0.53400004
+offset_left = -12.320007
+offset_top = -12.76004
+offset_right = 15.119995
+offset_bottom = 9.279968
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_icons/icon = ExtResource("6_qjecw")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_38dbo")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_dy7mf")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_tugda")
 
-[node name="Star1" type="Label" parent="Label" unique_id=1245807445]
+[node name="Star1" type="TextureRect" parent="." unique_id=1150056528]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.132
-anchor_top = 0.41000003
-anchor_right = 0.323
-anchor_bottom = 0.67800003
-offset_left = 0.22399902
-offset_top = -0.120010376
-offset_right = -0.16400146
-offset_bottom = -0.0960083
-theme_override_styles/normal = SubResource("StyleBoxTexture_qjecw")
+anchor_left = 0.41000003
+anchor_top = 0.37100002
+anchor_right = 0.467
+anchor_bottom = 0.47200003
+offset_left = 0.79992676
+offset_top = 0.3199768
+offset_right = -0.64001465
+offset_bottom = 0.23995972
+texture = ExtResource("6_gto2t")
 
-[node name="Star2" type="Label" parent="Label" unique_id=259949611]
+[node name="Star2" type="TextureRect" parent="." unique_id=1345943420]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.34800002
-anchor_top = 0.26200002
-anchor_right = 0.63900006
-anchor_bottom = 0.62
-offset_left = 0.13598633
-offset_top = 0.015991211
-offset_right = -97.38866
-offset_bottom = -94.335846
-scale = Vector2(3.5175412, 4.8563194)
-theme_override_styles/normal = SubResource("StyleBoxTexture_e0pkv")
+anchor_left = 0.45900002
+anchor_top = 0.33200002
+anchor_right = 0.545
+anchor_bottom = 0.47400004
+offset_left = 13.719971
+offset_top = 2.439972
+offset_right = -21.400024
+offset_bottom = -26.920044
+texture = ExtResource("7_jirbl")
 
-[node name="Star3" type="Label" parent="Label" unique_id=1465049179]
+[node name="Star3" type="TextureRect" parent="." unique_id=1612652494]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.665
-anchor_top = 0.41000003
-anchor_right = 0.85700005
-anchor_bottom = 0.67800003
-offset_left = -0.22000122
-offset_top = -0.120010376
-offset_right = -0.07601929
-offset_bottom = -0.0960083
-theme_override_styles/normal = SubResource("StyleBoxTexture_uemsn")
+anchor_left = 0.53400004
+anchor_top = 0.365
+anchor_right = 0.605
+anchor_bottom = 0.46500003
+offset_left = 0.7199707
+offset_top = -0.2000122
+offset_right = 0.39990234
+offset_bottom = -0.20004272
+texture = ExtResource("8_2hnm7")
+
+[node name="Fade" type="ColorRect" parent="." unique_id=742354872]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=783063657]
+libraries/ = SubResource("AnimationLibrary_2hnm7")
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
-[connection signal="pressed" from="Label/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="NextButton" to="." method="_on_next_button_pressed"]

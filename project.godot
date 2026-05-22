@@ -15,6 +15,10 @@ run/main_scene="uid://coiadp1a31alf"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameManager="*uid://64nl2ogkrcp3"
+
 [display]
 
 window/size/viewport_width=1920
@@ -51,3 +55,7 @@ renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
 2d/snap/snap_2d_transforms_to_pixel=true
+
+[xr]
+
+shaders/quality/use_taa=false

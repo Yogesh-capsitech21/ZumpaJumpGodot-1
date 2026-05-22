@@ -119,8 +119,8 @@ shape = SubResource("RectangleShape2D_mifa2")
 
 [node name="line" type="Sprite2D" parent="WinLine/CollisionShape2D" unique_id=1888878035]
 z_index = 1
-position = Vector2(-39.741627, 0)
-scale = Vector2(1.483395, 1)
+position = Vector2(-46.750225, 0)
+scale = Vector2(1.5006151, 1)
 texture = ExtResource("2_dj1r7")
 
 [node name="Shadow" type="Sprite2D" parent="WinLine" unique_id=368670124]
@@ -135,9 +135,9 @@ script = ExtResource("5_m1tv4")
 
 [node name="UpperBackground" type="Sprite2D" parent="." unique_id=1084715718]
 z_index = -1
-position = Vector2(927, -1042.8163)
+position = Vector2(968.6777, -1042.8431)
 rotation = 3.140948
-scale = Vector2(1.8400006, 1.6800768)
+scale = Vector2(2.008644, 1.6800768)
 texture = ExtResource("6_svbv1")
 
 [node name="background" type="Sprite2D" parent="." unique_id=1619610707]

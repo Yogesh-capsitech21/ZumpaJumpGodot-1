@@ -132,7 +132,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../../Obstacle2/AnimatableBody2D:position")
+tracks/1/path = NodePath("../../Enemy/AnimatableBody2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -204,19 +204,18 @@ position = Vector2(960, 277.00003)
 scale = Vector2(2.008368, 3.645455)
 texture = ExtResource("1_e1cbu")
 
+[node name="Star" parent="." unique_id=1176012600 instance=ExtResource("8_to7gp")]
+position = Vector2(832, 575)
+
+[node name="Star2" parent="." unique_id=136823455 instance=ExtResource("8_to7gp")]
+position = Vector2(507, 93)
+
+[node name="Star3" parent="." unique_id=2067068053 instance=ExtResource("8_to7gp")]
+position = Vector2(1198, -303)
+
 [node name="Player2" parent="." unique_id=417709625 groups=["player"] instance=ExtResource("3_7nt27")]
 z_index = 103
 position = Vector2(952, 613)
-
-[node name="Star" parent="." unique_id=1176012600 instance=ExtResource("8_to7gp")]
-position = Vector2(732, 557)
-priority = 1
-
-[node name="Star2" parent="." unique_id=709135573 instance=ExtResource("8_to7gp")]
-position = Vector2(1315, 257)
-
-[node name="Star3" parent="." unique_id=648174352 instance=ExtResource("8_to7gp")]
-position = Vector2(521, 51)
 
 [node name="Platform" type="Sprite2D" parent="." unique_id=750368747]
 position = Vector2(-20, 742.99994)
@@ -239,67 +238,67 @@ position = Vector2(24.45245, -159.3513)
 scale = Vector2(1.0000002, 1)
 shape = SubResource("RectangleShape2D_l40q6")
 
-[node name="RightWall" type="StaticBody2D" parent="LeftWall/CollisionShape2D" unique_id=583801751]
-position = Vector2(1003.7428, 159.35132)
-scale = Vector2(0.99999976, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall/CollisionShape2D/RightWall" unique_id=726001483]
-position = Vector2(-22.066772, -138.13297)
-scale = Vector2(1.0000002, 1)
-shape = SubResource("RectangleShape2D_l40q6")
-
-[node name="Sprite2D" type="Sprite2D" parent="LeftWall/CollisionShape2D/RightWall" unique_id=1688265823]
-position = Vector2(-23.25962, -142.97464)
-scale = Vector2(1.4293061, 1.9240506)
-texture = ExtResource("10_k6f3i")
-
 [node name="Sprite2D" type="Sprite2D" parent="LeftWall" unique_id=756909307]
 position = Vector2(27.136261, -163.19615)
 scale = Vector2(1.362468, 2.0107107)
 texture = ExtResource("10_k6f3i")
 
-[node name="Obstacle3" type="Area2D" parent="." unique_id=1592601377 groups=["obstacle"]]
+[node name="RightWall" type="StaticBody2D" parent="." unique_id=583801751]
+position = Vector2(1813, 426.00003)
+scale = Vector2(1.6767241, 1.7555556)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall" unique_id=726001483]
+position = Vector2(-22.066772, -138.13297)
+scale = Vector2(1.0000002, 1)
+shape = SubResource("RectangleShape2D_l40q6")
+
+[node name="Sprite2D" type="Sprite2D" parent="RightWall" unique_id=1688265823]
+position = Vector2(-23.25962, -142.97464)
+scale = Vector2(1.4293061, 1.9240506)
+texture = ExtResource("10_k6f3i")
+
+[node name="Obstacles" type="Area2D" parent="." unique_id=1592601377]
 position = Vector2(657, 717)
 script = ExtResource("19_7nt27")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle3" unique_id=1121710409]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles" unique_id=1121710409]
 z_index = -1
 position = Vector2(312.5, 71)
 shape = SubResource("RectangleShape2D_k6f3i")
 
-[node name="Sprite2D" type="Sprite2D" parent="Obstacle3" unique_id=377225148]
+[node name="Sprite2D" type="Sprite2D" parent="Obstacles" unique_id=377225148]
 z_index = -1
 position = Vector2(-171, 65)
 rotation = -1.5789411
 scale = Vector2(0.6278327, 0.6004036)
 texture = ExtResource("11_xdqt8")
 
-[node name="Sprite2D2" type="Sprite2D" parent="Obstacle3" unique_id=264183219]
+[node name="Sprite2D2" type="Sprite2D" parent="Obstacles" unique_id=264183219]
 z_index = -1
 position = Vector2(791, 63)
 rotation = -1.5789411
 scale = Vector2(0.6278327, 0.6004036)
 texture = ExtResource("11_xdqt8")
 
-[node name="Obstacle2" type="Area2D" parent="." unique_id=1582844183 groups=["obstacle"]]
+[node name="Enemy" type="Area2D" parent="." unique_id=1582844183]
 position = Vector2(361, 375)
 script = ExtResource("14_01n6w")
 
-[node name="AnimatableBody2D" type="AnimatableBody2D" parent="Obstacle2" unique_id=833767426]
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="Enemy" unique_id=833767426]
 position = Vector2(8.16333, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle2/AnimatableBody2D" unique_id=571157477]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/AnimatableBody2D" unique_id=571157477]
 shape = SubResource("CircleShape2D_01n6w")
 
-[node name="back" type="Sprite2D" parent="Obstacle2/AnimatableBody2D" unique_id=1080761471]
+[node name="back" type="Sprite2D" parent="Enemy/AnimatableBody2D" unique_id=1080761471]
 show_behind_parent = true
 z_index = -1
 texture = ExtResource("15_6u1mn")
 
-[node name="front" type="Sprite2D" parent="Obstacle2/AnimatableBody2D" unique_id=534180638]
+[node name="front" type="Sprite2D" parent="Enemy/AnimatableBody2D" unique_id=534180638]
 texture = ExtResource("16_bcnxi")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Obstacle2/AnimatableBody2D" unique_id=171175586]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemy/AnimatableBody2D" unique_id=171175586]
 libraries/ = SubResource("AnimationLibrary_7nt27")
 autoplay = &"new_animation"
 speed_scale = 2.079
@@ -424,25 +423,25 @@ fill_star1 = ExtResource("28_lhwp2")
 fill_star2 = ExtResource("26_k3g67")
 fill_star3 = ExtResource("30_l40q6")
 
-[node name="Obstacle" type="Area2D" parent="." unique_id=1728200031 groups=["obstacle"]]
+[node name="Enemy2" type="Area2D" parent="." unique_id=1728200031]
 position = Vector2(365, -63)
 script = ExtResource("18_bcnxi")
 
-[node name="AnimatableBody2D" type="AnimatableBody2D" parent="Obstacle" unique_id=1304838843]
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="Enemy2" unique_id=1304838843]
 position = Vector2(1150, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/AnimatableBody2D" unique_id=1495650286]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy2/AnimatableBody2D" unique_id=1495650286]
 shape = SubResource("CircleShape2D_6u1mn")
 
-[node name="back" type="Sprite2D" parent="Obstacle/AnimatableBody2D" unique_id=1404578084]
+[node name="back" type="Sprite2D" parent="Enemy2/AnimatableBody2D" unique_id=1404578084]
 show_behind_parent = true
 z_index = -1
 texture = ExtResource("15_6u1mn")
 
-[node name="front" type="Sprite2D" parent="Obstacle/AnimatableBody2D" unique_id=1677228282]
+[node name="front" type="Sprite2D" parent="Enemy2/AnimatableBody2D" unique_id=1677228282]
 texture = ExtResource("16_bcnxi")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Obstacle/AnimatableBody2D" unique_id=1831947233]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemy2/AnimatableBody2D" unique_id=1831947233]
 libraries/ = SubResource("AnimationLibrary_xdqt8")
 autoplay = &"RESET"
 speed_scale = 1.3

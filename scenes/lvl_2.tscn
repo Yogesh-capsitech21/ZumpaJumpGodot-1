@@ -19,7 +19,14 @@
 [ext_resource type="Texture2D" uid="uid://db6xlm5mpopum" path="res://assets/Group 231.png" id="15_q373u"]
 [ext_resource type="Texture2D" uid="uid://10wg35en3out" path="res://assets/Group 230.png" id="16_wx4jj"]
 [ext_resource type="Texture2D" uid="uid://bbui4kv8aw472" path="res://assets/Group 229.png" id="17_hmy1o"]
+[ext_resource type="PackedScene" uid="uid://hk7oi4l5exsl" path="res://scenes/level_complete_panel.tscn" id="19_44hrr"]
+[ext_resource type="Texture2D" uid="uid://dle1oa24fc5je" path="res://assets/Star 5.png" id="20_1osul"]
 [ext_resource type="Script" uid="uid://e4w61lc814r2" path="res://Scripts/obstacles.gd" id="20_5emcn"]
+[ext_resource type="Texture2D" uid="uid://bt58gwtxchnw7" path="res://assets/Star 4.png" id="21_8cjld"]
+[ext_resource type="Texture2D" uid="uid://b5oskcrnni621" path="res://assets/Star 3.png" id="22_dgtug"]
+[ext_resource type="Texture2D" uid="uid://cim5rm2afdfmx" path="res://assets/Star 5 (1).png" id="23_4q5qe"]
+[ext_resource type="Texture2D" uid="uid://cm7nxy7ixvuv7" path="res://assets/Star 4 (1).png" id="24_q373u"]
+[ext_resource type="Texture2D" uid="uid://cc86q5mfs20iq" path="res://assets/Star 3 (1).png" id="25_wx4jj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hajku"]
 size = Vector2(1440, 11)
@@ -87,9 +94,11 @@ size = Vector2(232.4632, 1578.9241)
 
 [node name="Lvl2" type="Area2D" unique_id=137434171]
 
-[node name="WinLine" type="Area2D" parent="." unique_id=1839816708]
+[node name="WinLine" type="Area2D" parent="." unique_id=1839816708 node_paths=PackedStringArray("level_complete_panel", "pause_panel")]
 position = Vector2(963, -521)
 script = ExtResource("1_422u3")
+level_complete_panel = NodePath("../CanvasLayer/LevelCompletePanel")
+pause_panel = NodePath("../CanvasLayer/PausePannel")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WinLine" unique_id=1329566151]
 shape = SubResource("RectangleShape2D_hajku")
@@ -215,6 +224,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_58gk3")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_to7gp")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_01n6w")
 icon_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="PauseMenu" type="Control" parent="CanvasLayer/PausePannel" unique_id=209401814]
 visible = false
@@ -291,6 +301,16 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_pgk25")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_kkokr")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_lhwp2")
 
+[node name="LevelCompletePanel" parent="CanvasLayer" unique_id=1322715221 instance=ExtResource("19_44hrr")]
+visible = false
+empty_star1 = ExtResource("20_1osul")
+empty_star2 = ExtResource("21_8cjld")
+empty_star3 = ExtResource("22_dgtug")
+fill_star1 = ExtResource("23_4q5qe")
+fill_star2 = ExtResource("24_q373u")
+fill_star3 = ExtResource("25_wx4jj")
+next_level_path = "res://scenes/lvl_3.tscn"
+
 [node name="Obstacles" type="Area2D" parent="." unique_id=1507497568]
 texture_filter = 1
 position = Vector2(659, 530)
@@ -330,6 +350,7 @@ rotation = 1.5707964
 scale = Vector2(0.2322948, 0.3502385)
 shape = SubResource("RectangleShape2D_44hrr")
 
+[connection signal="body_entered" from="WinLine" to="WinLine" method="_on_body_entered"]
 [connection signal="pressed" from="CanvasLayer/PausePannel/PauseBtn" to="CanvasLayer/PausePannel" method="_on_pause_btn_pressed"]
 [connection signal="pressed" from="CanvasLayer/PausePannel/PauseMenu/BackBtn" to="CanvasLayer/PausePannel" method="_on_back_btn_pressed"]
 [connection signal="pressed" from="CanvasLayer/PausePannel/PauseMenu/TextureRect/HBoxContainer/ResumeButton" to="CanvasLayer/PausePannel" method="_on_resume_button_pressed"]
