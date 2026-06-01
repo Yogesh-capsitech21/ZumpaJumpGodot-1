@@ -10,15 +10,21 @@
 [ext_resource type="PackedScene" uid="uid://ofop1ep0gqae" path="res://YogeshScenes/Scenes/player.tscn" id="8_nj4xi"]
 [ext_resource type="Texture2D" uid="uid://b574he0frap7c" path="res://assets/Rectangle 93.png" id="9_i0j07"]
 [ext_resource type="Script" uid="uid://e4w61lc814r2" path="res://Scripts/obstacles.gd" id="10_8fr8p"]
-[ext_resource type="Texture2D" uid="uid://cih3uoq3cqaj1" path="res://YogeshAssets/Group 169.png" id="11_ct8w2"]
 [ext_resource type="Script" uid="uid://x256s7om5aam" path="res://Scripts/pause_pannel.gd" id="12_g6dyw"]
-[ext_resource type="Texture2D" uid="uid://cih3uoq3cqaj1" path="res://assets/Group 169.png" id="12_ri6o5"]
+[ext_resource type="Texture2D" uid="uid://cih3uoq3cqaj1" path="res://YogeshAssets/Group 169.png" id="12_ri6o5"]
 [ext_resource type="Texture2D" uid="uid://br5p7w4jvb6vy" path="res://assets/Pause icon.png" id="13_8p5pp"]
 [ext_resource type="Texture2D" uid="uid://hiui2pmnbav3" path="res://assets/Group 133.png" id="14_cr8ob"]
 [ext_resource type="Texture2D" uid="uid://cimhbdt7pi57x" path="res://assets/Group 424.png" id="15_ap2yq"]
 [ext_resource type="Texture2D" uid="uid://db6xlm5mpopum" path="res://assets/Group 231.png" id="16_axita"]
 [ext_resource type="Texture2D" uid="uid://10wg35en3out" path="res://assets/Group 230.png" id="17_j7qkv"]
 [ext_resource type="Texture2D" uid="uid://bbui4kv8aw472" path="res://assets/Group 229.png" id="18_solxl"]
+[ext_resource type="PackedScene" uid="uid://hk7oi4l5exsl" path="res://scenes/level_complete_panel.tscn" id="19_f7qe8"]
+[ext_resource type="Texture2D" uid="uid://dle1oa24fc5je" path="res://assets/Star 5.png" id="20_uynhk"]
+[ext_resource type="Texture2D" uid="uid://bt58gwtxchnw7" path="res://assets/Star 4.png" id="21_wewky"]
+[ext_resource type="Texture2D" uid="uid://b5oskcrnni621" path="res://assets/Star 3.png" id="22_8ohgd"]
+[ext_resource type="Texture2D" uid="uid://cim5rm2afdfmx" path="res://assets/Star 5 (1).png" id="23_48anx"]
+[ext_resource type="Texture2D" uid="uid://cm7nxy7ixvuv7" path="res://assets/Star 4 (1).png" id="24_7wjyk"]
+[ext_resource type="Texture2D" uid="uid://cc86q5mfs20iq" path="res://assets/Star 3 (1).png" id="25_2hfhv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_exiys"]
 size = Vector2(954.00006, 8.5)
@@ -254,9 +260,11 @@ size = Vector2(519.04877, 114.73755)
 
 [node name="lvl_6" type="Area2D" unique_id=1604000110]
 
-[node name="WinLine" type="Area2D" parent="." unique_id=1705857828]
+[node name="WinLine" type="Area2D" parent="." unique_id=1705857828 node_paths=PackedStringArray("level_complete_panel", "pause_panel")]
 position = Vector2(1420, 911.81616)
 script = ExtResource("1_4mrah")
+level_complete_panel = NodePath("../CanvasLayer/LevelCompletePanel")
+pause_panel = NodePath("../CanvasLayer/PausePannel")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WinLine" unique_id=1868853295]
 position = Vector2(1.2415771, -1.25)
@@ -292,7 +300,7 @@ scale = Vector2(2.008368, 4.6568184)
 texture = ExtResource("7_uqd4p")
 
 [node name="Player" parent="." unique_id=417709625 instance=ExtResource("8_nj4xi")]
-position = Vector2(699, -772)
+position = Vector2(826, -652)
 collision_mask = 3
 
 [node name="LeftWall" type="StaticBody2D" parent="." unique_id=1919895583]
@@ -308,8 +316,8 @@ shape = SubResource("RectangleShape2D_arutk")
 
 [node name="Sprite2D" type="Sprite2D" parent="LeftWall" unique_id=1622595893]
 z_index = 1
-position = Vector2(0, 82.65992)
-scale = Vector2(1.81491, 1.9330329)
+position = Vector2(-30.863745, 82.65992)
+scale = Vector2(2.3470438, 1.9330329)
 texture = ExtResource("9_i0j07")
 
 [node name="RightWall" type="StaticBody2D" parent="." unique_id=147237667]
@@ -325,8 +333,8 @@ shape = SubResource("RectangleShape2D_gbneg")
 
 [node name="Sprite2D" type="Sprite2D" parent="RightWall" unique_id=1958795045]
 z_index = 1
-position = Vector2(2.6837769, 79.87861)
-scale = Vector2(1.81491, 1.9331986)
+position = Vector2(53.37791, 79.87861)
+scale = Vector2(2.6889467, 1.9331986)
 texture = ExtResource("9_i0j07")
 
 [node name="Wall2" type="StaticBody2D" parent="." unique_id=416571087]
@@ -340,7 +348,8 @@ shape = SubResource("RectangleShape2D_6v7ee")
 
 [node name="Sprite2D" type="Sprite2D" parent="Wall2" unique_id=1143646276]
 z_index = 1
-scale = Vector2(1.4921921, 1.8794379)
+position = Vector2(49.090477, 18.850126)
+scale = Vector2(2.33858, 2.1172256)
 texture = ExtResource("9_i0j07")
 
 [node name="Wall3" type="StaticBody2D" parent="." unique_id=131429886]
@@ -384,21 +393,21 @@ z_index = -1
 position = Vector2(378, 1.3429258e-12)
 rotation = 1.5707964
 scale = Vector2(0.6278327, 0.6004036)
-texture = ExtResource("11_ct8w2")
+texture = ExtResource("12_ri6o5")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Obstacles" unique_id=1359876237]
 z_index = -1
 position = Vector2(-95, -3.375078e-13)
 rotation = 1.5707964
 scale = Vector2(0.6278327, 0.6004036)
-texture = ExtResource("11_ct8w2")
+texture = ExtResource("12_ri6o5")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Obstacles" unique_id=36705181]
 z_index = -1
 position = Vector2(-568, -2.0179414e-12)
 rotation = 1.5707964
 scale = Vector2(0.6278327, 0.6004036)
-texture = ExtResource("11_ct8w2")
+texture = ExtResource("12_ri6o5")
 
 [node name="Obstacle" type="Area2D" parent="." unique_id=1655124195]
 position = Vector2(1497, -724)
@@ -611,6 +620,15 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_qjq5k")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_i8upw")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_ud2es")
 
+[node name="LevelCompletePanel" parent="CanvasLayer" unique_id=1322715221 instance=ExtResource("19_f7qe8")]
+empty_star1 = ExtResource("20_uynhk")
+empty_star2 = ExtResource("21_wewky")
+empty_star3 = ExtResource("22_8ohgd")
+fill_star1 = ExtResource("23_48anx")
+fill_star2 = ExtResource("24_7wjyk")
+fill_star3 = ExtResource("25_2hfhv")
+next_level_path = "res://scenes/lvl_7.tscn"
+
 [node name="Platform" type="Sprite2D" parent="." unique_id=1305242992]
 position = Vector2(276, -465.99997)
 rotation = -1.5707964
@@ -627,6 +645,7 @@ rotation = 1.5707964
 scale = Vector2(0.9999997, 1)
 shape = SubResource("RectangleShape2D_4mrah")
 
+[connection signal="body_entered" from="WinLine" to="WinLine" method="_on_body_entered"]
 [connection signal="body_entered" from="Obstacles" to="Obstacles" method="_on_body_entered"]
 [connection signal="body_entered" from="Obstacle/Obstacles2" to="Obstacle/Obstacles2" method="_on_body_entered"]
 [connection signal="body_entered" from="Obstacle2/Obstacles" to="Obstacle2/Obstacles" method="_on_body_entered"]

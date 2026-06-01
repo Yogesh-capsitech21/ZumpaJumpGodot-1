@@ -20,6 +20,13 @@
 [ext_resource type="Texture2D" uid="uid://10wg35en3out" path="res://assets/Group 230.png" id="18_tl423"]
 [ext_resource type="Texture2D" uid="uid://bbui4kv8aw472" path="res://assets/Group 229.png" id="19_otg18"]
 [ext_resource type="Texture2D" uid="uid://xw4yapyx2ksb" path="res://assets/Group 175.png" id="20_bopmt"]
+[ext_resource type="PackedScene" uid="uid://hk7oi4l5exsl" path="res://scenes/level_complete_panel.tscn" id="20_uhd25"]
+[ext_resource type="Texture2D" uid="uid://dle1oa24fc5je" path="res://assets/Star 5.png" id="21_rxblv"]
+[ext_resource type="Texture2D" uid="uid://bt58gwtxchnw7" path="res://assets/Star 4.png" id="22_ngceu"]
+[ext_resource type="Texture2D" uid="uid://b5oskcrnni621" path="res://assets/Star 3.png" id="23_wlq57"]
+[ext_resource type="Texture2D" uid="uid://cim5rm2afdfmx" path="res://assets/Star 5 (1).png" id="24_0803q"]
+[ext_resource type="Texture2D" uid="uid://cm7nxy7ixvuv7" path="res://assets/Star 4 (1).png" id="25_uyw46"]
+[ext_resource type="Texture2D" uid="uid://cc86q5mfs20iq" path="res://assets/Star 3 (1).png" id="26_o7npk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_debif"]
 size = Vector2(1440, 11)
@@ -104,9 +111,11 @@ _data = {
 
 [node name="lvl_4" type="Area2D" unique_id=1157536466]
 
-[node name="WinLine" type="Area2D" parent="." unique_id=789472966]
+[node name="WinLine" type="Area2D" parent="." unique_id=789472966 node_paths=PackedStringArray("level_complete_panel", "pause_panel")]
 position = Vector2(1004, -676)
 script = ExtResource("1_2r3ux")
+level_complete_panel = NodePath("../CanvasLayer/LevelCompletePanel")
+pause_panel = NodePath("../CanvasLayer/PausePannel")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WinLine" unique_id=1576131253]
 shape = SubResource("RectangleShape2D_debif")
@@ -141,7 +150,7 @@ scale = Vector2(2.008368, 3.990909)
 texture = ExtResource("7_wpmri")
 
 [node name="Player" parent="." unique_id=417709625 instance=ExtResource("8_xpdbn")]
-position = Vector2(961, 627)
+position = Vector2(828, 627)
 collision_mask = 3
 
 [node name="Platform" type="Sprite2D" parent="." unique_id=15248299]
@@ -231,6 +240,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_wsjtv")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_3ty2k")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_dctbs")
 icon_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="PauseMenu" type="Control" parent="CanvasLayer/PausePannel" unique_id=250260196]
 visible = false
@@ -312,6 +322,16 @@ theme_override_icons/icon = ExtResource("19_otg18")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_q4haw")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_vd12k")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_4hf5v")
+
+[node name="LevelCompletePanel" parent="CanvasLayer" unique_id=1322715221 instance=ExtResource("20_uhd25")]
+empty_star1 = ExtResource("21_rxblv")
+empty_star2 = ExtResource("22_ngceu")
+empty_star3 = ExtResource("23_wlq57")
+fill_star1 = ExtResource("24_0803q")
+fill_star2 = ExtResource("25_uyw46")
+fill_star3 = ExtResource("26_o7npk")
+next_level_path = "res://scenes/lvl_5.tscn"
+metadata/_edit_use_anchors_ = true
 
 [node name="Obstac1" type="Area2D" parent="." unique_id=270449534]
 position = Vector2(1230, 362)
@@ -490,6 +510,7 @@ libraries/ = SubResource("AnimationLibrary_rm7e6")
 autoplay = &"new_animation"
 speed_scale = 0.45
 
+[connection signal="body_entered" from="WinLine" to="WinLine" method="_on_body_entered"]
 [connection signal="body_entered" from="Obstacles" to="Obstacles" method="_on_body_entered"]
 [connection signal="pressed" from="CanvasLayer/PausePannel/PauseBtn" to="CanvasLayer/PausePannel" method="_on_pause_btn_pressed"]
 [connection signal="pressed" from="CanvasLayer/PausePannel/PauseMenu/BackBtn" to="CanvasLayer/PausePannel" method="_on_back_btn_pressed"]

@@ -72,7 +72,7 @@ size = Vector2(320, 415.56006)
 [node name="Player" type="CharacterBody2D" unique_id=417709625]
 z_index = 1
 texture_filter = 1
-position = Vector2(589, 305)
+position = Vector2(948, 623)
 scale = Vector2(0.125, 0.125)
 script = ExtResource("1_4flbx")
 move_speed = 276
@@ -92,7 +92,7 @@ scale = Vector2(1.0000001, 1.0000001)
 shape = SubResource("RectangleShape2D_i3pqv")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2066065484]
-position = Vector2(8, -712)
+position = Vector2(1136, 72)
 position_smoothing_enabled = true
 position_smoothing_speed = 6.0
 script = ExtResource("10_n7ghd")

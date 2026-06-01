@@ -101,3 +101,7 @@ func _on_back_button_pressed():
 
 	# restart level
 	get_tree().reload_current_scene()
+
+
+func _on_win_line_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
