@@ -9,22 +9,24 @@
 anchors_preset = -1
 anchor_left = 0.119
 anchor_top = 0.28300002
-anchor_right = 0.164
-anchor_bottom = 0.363
-offset_left = 0.519989
-offset_top = 0.35998535
-offset_right = 0.11999512
-offset_bottom = -0.040008545
+anchor_right = 0.128
+anchor_bottom = 0.298
+offset_left = -100.48001
+offset_top = -200.64001
+offset_right = -82.76001
+offset_bottom = -185.84
+scale = Vector2(0.5, 0.5)
 size_flags_horizontal = 3
 size_flags_vertical = 3
+disabled = true
 texture_normal = ExtResource("1_6g3el")
 texture_disabled = ExtResource("2_ium1h")
 ignore_texture_size = true
 stretch_mode = 5
 script = ExtResource("3_nfgsp")
-locked = false
 
 [node name="Label" type="Label" parent="." unique_id=1550368966]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

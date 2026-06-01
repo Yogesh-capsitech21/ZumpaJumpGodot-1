@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://b574he0frap7c" path="res://assets/Rectangle 93.png" id="10_w2csm"]
 [ext_resource type="Script" uid="uid://e4w61lc814r2" path="res://Scripts/obstacles.gd" id="11_lv253"]
 [ext_resource type="Texture2D" uid="uid://cih3uoq3cqaj1" path="res://YogeshAssets/Group 169.png" id="12_6j5kq"]
+[ext_resource type="Script" uid="uid://g8pgccvkoq8n" path="res://Scripts/obstacle.gd" id="13_1lvag"]
 [ext_resource type="Texture2D" uid="uid://cey7er8ln0grv" path="res://assets/Polygon 21.png" id="13_d5eek"]
 [ext_resource type="Script" uid="uid://x256s7om5aam" path="res://Scripts/pause_pannel.gd" id="14_3sw8l"]
 [ext_resource type="Texture2D" uid="uid://br5p7w4jvb6vy" path="res://assets/Pause icon.png" id="15_cq1m4"]
@@ -174,7 +175,8 @@ scale = Vector2(0.6278327, 0.6004036)
 texture = ExtResource("12_6j5kq")
 
 [node name="Obstacle" type="Area2D" parent="." unique_id=88757564]
-position = Vector2(961, 571)
+position = Vector2(961, 23)
+script = ExtResource("13_1lvag")
 
 [node name="Sprite2D" type="Sprite2D" parent="Obstacle" unique_id=1076905962]
 z_index = -1
@@ -182,6 +184,50 @@ rotation = -1.5789411
 texture = ExtResource("13_d5eek")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle" unique_id=1825573957]
+z_index = -1
+position = Vector2(-2, 4.5)
+shape = SubResource("RectangleShape2D_e8rmj")
+
+[node name="Obstacle2" type="Area2D" parent="." unique_id=1246334216]
+position = Vector2(789, -406)
+script = ExtResource("13_1lvag")
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle2" unique_id=1796035178]
+z_index = -1
+rotation = -1.5789411
+texture = ExtResource("13_d5eek")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle2" unique_id=453127080]
+z_index = -1
+position = Vector2(-2, 4.5)
+shape = SubResource("RectangleShape2D_e8rmj")
+
+[node name="Obstacle3" type="Area2D" parent="." unique_id=1707699998]
+position = Vector2(1134, 349)
+script = ExtResource("13_1lvag")
+move_distance = 350.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle3" unique_id=157251956]
+z_index = -1
+rotation = 1.5707964
+texture = ExtResource("13_d5eek")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle3" unique_id=1526636853]
+z_index = -1
+position = Vector2(-2, 4.5)
+shape = SubResource("RectangleShape2D_e8rmj")
+
+[node name="Obstacle4" type="Area2D" parent="." unique_id=937602092]
+position = Vector2(1084, -272)
+script = ExtResource("13_1lvag")
+move_distance = 350.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle4" unique_id=1975943698]
+z_index = -1
+rotation = 1.5707964
+texture = ExtResource("13_d5eek")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle4" unique_id=2032813209]
 z_index = -1
 position = Vector2(-2, 4.5)
 shape = SubResource("RectangleShape2D_e8rmj")
@@ -294,6 +340,10 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_xcsru")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_ain2g")
 
 [connection signal="body_entered" from="Obstacles" to="Obstacles" method="_on_body_entered"]
+[connection signal="body_entered" from="Obstacle" to="Obstacle" method="_on_body_entered"]
+[connection signal="body_entered" from="Obstacle2" to="Obstacle2" method="_on_body_entered"]
+[connection signal="body_entered" from="Obstacle3" to="Obstacle3" method="_on_body_entered"]
+[connection signal="body_entered" from="Obstacle4" to="Obstacle4" method="_on_body_entered"]
 [connection signal="pressed" from="CanvasLayer/PausePannel/PauseBtn" to="CanvasLayer/PausePannel" method="_on_pause_btn_pressed"]
 [connection signal="pressed" from="CanvasLayer/PausePannel/PauseMenu/BackBtn" to="CanvasLayer/PausePannel" method="_on_back_btn_pressed"]
 [connection signal="pressed" from="CanvasLayer/PausePannel/PauseMenu/TextureRect/HBoxContainer/ResumeButton" to="CanvasLayer/PausePannel" method="_on_resume_button_pressed"]

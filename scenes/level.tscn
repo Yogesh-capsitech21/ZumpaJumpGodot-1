@@ -5,14 +5,13 @@
 [ext_resource type="Texture2D" uid="uid://w1ap0vrcv748" path="res://assets/bg.png" id="3_2r41h"]
 [ext_resource type="Texture2D" uid="uid://hiui2pmnbav3" path="res://assets/Group 133.png" id="3_ppgk2"]
 [ext_resource type="FontFile" uid="uid://clw3fvh0kjky6" path="res://Fonts/Vito Bold.otf" id="4_klq6b"]
+[ext_resource type="PackedScene" uid="uid://b2ur1xb3ce575" path="res://scenes/level_button.tscn" id="5_2r41h"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ppgk2"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b121j"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8c41q"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_klq6b"]
 
 [node name="Level" type="Control" unique_id=730799586]
 layout_mode = 3
@@ -34,30 +33,92 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_mx8sn")
 
-[node name="GridContainer" type="GridContainer" parent="." unique_id=1733749415]
+[node name="Control" type="Control" parent="." unique_id=232812887]
+layout_mode = 1
+anchor_left = 0.109000005
+anchor_top = 0.11800001
+anchor_right = 0.731
+anchor_bottom = 0.731
+offset_left = 131.71999
+offset_top = 73.55999
+offset_right = 130.47998
+offset_bottom = 74.52002
+
+[node name="GridContainer" type="GridContainer" parent="Control" unique_id=1733749415]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.136
-anchor_top = 0.13100001
-anchor_right = 0.87900007
-anchor_bottom = 0.84300005
-offset_left = 0.32798767
-offset_top = 0.11199188
-offset_right = -0.60809326
-offset_bottom = -0.2640381
-grow_horizontal = 2
-grow_vertical = 2
+anchor_left = 0.134
+anchor_top = 0.10300001
+anchor_right = 1.1350001
+anchor_bottom = 1.11
+offset_left = -159.862
+offset_top = -68.289
+offset_right = -160.35718
+offset_bottom = -67.92999
 columns = 5
 
-[node name="Button2" type="Button" parent="GridContainer" unique_id=1362801749]
+[node name="LevelButton" parent="Control/GridContainer" unique_id=455143088 instance=ExtResource("5_2r41h")]
 layout_mode = 2
+
+[node name="LevelButton2" parent="Control/GridContainer" unique_id=1403440224 instance=ExtResource("5_2r41h")]
+layout_mode = 2
+
+[node name="LevelButton3" parent="Control/GridContainer" unique_id=1309721902 instance=ExtResource("5_2r41h")]
+layout_mode = 2
+
+[node name="LevelButton4" parent="Control/GridContainer" unique_id=344304900 instance=ExtResource("5_2r41h")]
+layout_mode = 2
+
+[node name="LevelButton5" parent="Control/GridContainer" unique_id=1863773756 instance=ExtResource("5_2r41h")]
+layout_mode = 2
+
+[node name="LevelButton6" parent="Control/GridContainer" unique_id=1337409967 instance=ExtResource("5_2r41h")]
+layout_mode = 2
+
+[node name="LevelButton7" parent="Control/GridContainer" unique_id=1042874674 instance=ExtResource("5_2r41h")]
+layout_mode = 2
+
+[node name="LevelButton8" parent="Control/GridContainer" unique_id=189859144 instance=ExtResource("5_2r41h")]
+layout_mode = 2
+
+[node name="LevelButton9" parent="Control/GridContainer" unique_id=1865437186 instance=ExtResource("5_2r41h")]
+layout_mode = 2
+
+[node name="LevelButton10" parent="Control/GridContainer" unique_id=1039526301 instance=ExtResource("5_2r41h")]
+layout_mode = 2
+
+[node name="LevelButton11" parent="Control/GridContainer" unique_id=1559959963 instance=ExtResource("5_2r41h")]
+layout_mode = 2
+
+[node name="LevelButton12" parent="Control/GridContainer" unique_id=1535000619 instance=ExtResource("5_2r41h")]
+layout_mode = 2
+
+[node name="LevelButton13" parent="Control/GridContainer" unique_id=85379742 instance=ExtResource("5_2r41h")]
+layout_mode = 2
+
+[node name="LevelButton14" parent="Control/GridContainer" unique_id=47117128 instance=ExtResource("5_2r41h")]
+layout_mode = 2
+
+[node name="BackButton" type="TextureButton" parent="." unique_id=1920814687]
+layout_mode = 1
+offset_right = 76.0
+offset_bottom = 87.0
+texture_normal = ExtResource("3_ppgk2")
+
+[node name="Button2" type="Button" parent="." unique_id=1362801749]
+visible = false
+layout_mode = 0
+offset_left = 341.0
+offset_top = 201.0
+offset_right = 428.0
+offset_bottom = 288.0
 theme_override_icons/icon = ExtResource("3_2r41h")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ppgk2")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_b121j")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_8c41q")
 icon_alignment = 1
 
-[node name="Label" type="Label" parent="GridContainer/Button2" unique_id=253013569]
+[node name="Label" type="Label" parent="Button2" unique_id=253013569]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -70,15 +131,5 @@ text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BackButton" type="Button" parent="." unique_id=714823518]
-layout_mode = 1
-offset_right = 76.0
-offset_bottom = 87.0
-theme_override_icons/icon = ExtResource("3_ppgk2")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_klq6b")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_b121j")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_8c41q")
-icon_alignment = 1
-
-[connection signal="pressed" from="GridContainer/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
