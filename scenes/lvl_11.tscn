@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cnhogkibe5mxa" path="res://YogeshAssets/Union.png" id="3_hsciw"]
 [ext_resource type="Texture2D" uid="uid://clhjupgrl6f4s" path="res://YogeshAssets/Group 201.png" id="4_1ry56"]
 [ext_resource type="Script" uid="uid://bq74lrye87bur" path="res://YogeshScripts/Scripts/animation.gd" id="5_wcm4a"]
-[ext_resource type="Texture2D" uid="uid://dmu7hk8cb7pn" path="res://assets/Loading screen.png" id="6_qa6an"]
+[ext_resource type="Texture2D" uid="uid://dmu7hk8cb7pn" path="res://YogeshAssets/Loading screen.png" id="6_qa6an"]
 [ext_resource type="Texture2D" uid="uid://brfkcgneidkuf" path="res://assets/setting screen (2).png" id="7_bwufg"]
 [ext_resource type="PackedScene" uid="uid://ofop1ep0gqae" path="res://YogeshScenes/Scenes/player.tscn" id="8_civem"]
 [ext_resource type="Texture2D" uid="uid://c5jnon8mqbgpc" path="res://assets/Group 212.png" id="9_qvtfm"]

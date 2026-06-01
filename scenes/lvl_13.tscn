@@ -103,7 +103,7 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_0amu1"]
 radius = 113.216606
 
-[sub_resource type="Animation" id="Animation_ejqas"]
+[sub_resource type="Animation" id="Animation_0amu1"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -118,9 +118,9 @@ tracks/0/keys = {
 "values": [0.0]
 }
 
-[sub_resource type="Animation" id="Animation_ovkb4"]
+[sub_resource type="Animation" id="Animation_ejqas"]
 resource_name = "new_animation"
-length = 2.0
+length = 4.0
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -129,16 +129,16 @@ tracks/0/path = NodePath(".:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.9666667),
+"times": PackedFloat32Array(0, 4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [6.283185307179586, 0.0]
+"values": [0.0, 6.283185307179586]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_jot75"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ovkb4"]
 _data = {
-&"RESET": SubResource("Animation_ejqas"),
-&"new_animation": SubResource("Animation_ovkb4")
+&"RESET": SubResource("Animation_0amu1"),
+&"new_animation": SubResource("Animation_ejqas")
 }
 
 [node name="lvl_13" type="Area2D" unique_id=2115502235]
@@ -377,10 +377,9 @@ texture_filter = 1
 scale = Vector2(0.62, 0.62)
 texture = ExtResource("20_fotce")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Obstac1" unique_id=1065558936]
-libraries/ = SubResource("AnimationLibrary_jot75")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Obstac1" unique_id=1370849304]
+libraries/ = SubResource("AnimationLibrary_ovkb4")
 autoplay = &"new_animation"
-speed_scale = -0.963
 
 [connection signal="body_entered" from="Obstacles/Obstacles" to="Obstacles/Obstacles" method="_on_body_entered"]
 [connection signal="pressed" from="CanvasLayer/PausePannel/PauseBtn" to="CanvasLayer/PausePannel" method="_on_pause_btn_pressed"]

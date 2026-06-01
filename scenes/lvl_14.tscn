@@ -167,9 +167,9 @@ script = ExtResource("5_tw60t")
 
 [node name="UpperBackground" type="Sprite2D" parent="." unique_id=77671886]
 z_index = -1
-position = Vector2(926.7584, -2927.8162)
+position = Vector2(956.9591, -2927.8357)
 rotation = 3.140948
-scale = Vector2(1.8400006, 1.6800768)
+scale = Vector2(2.009182, 1.6800768)
 texture = ExtResource("6_48q5p")
 
 [node name="background" type="Sprite2D" parent="." unique_id=950697877]
@@ -332,7 +332,7 @@ libraries/ = SubResource("AnimationLibrary_tw60t")
 autoplay = &"new_animation"
 
 [node name="Obstac2" type="Area2D" parent="." unique_id=1304101452]
-position = Vector2(997, -1983)
+position = Vector2(986, -2022)
 script = ExtResource("11_hr3iw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstac2" unique_id=617318622]

@@ -1,6 +1,8 @@
 extends Area2D
 
-@export var spring_force := -900
+@export var spring_force := -700
+
+
 
 func _ready():
 
@@ -9,6 +11,9 @@ func _ready():
 
 	# stop animation initially
 	$AnimationPlayer.stop()
+
+	# reset to first frame
+	$AnimationPlayer.seek(0, true)
 
 
 func _on_body_entered(body):
@@ -19,5 +24,16 @@ func _on_body_entered(body):
 		# bounce player upward
 		body.velocity.y = spring_force
 
-		# play spring animation
+		# restart animation from beginning
+		$AnimationPlayer.stop()
+
 		$AnimationPlayer.play("new_animation")
+
+		# wait animation finish
+		await $AnimationPlayer.animation_finished
+
+		# return to start frame
+		$AnimationPlayer.seek(0, true)
+
+		# stop animation
+		$AnimationPlayer.stop()
